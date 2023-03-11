@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div style="color: red;
+    background-color: #d1e7dd;
+    border-color: #badbcc; display: block;">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <section class="sec-1">
+        <div class="container">
+   <h1>Enter your Response Below</h1>
+   <form action="{{url_for('user')}}" method="post" style="text-align: center; align-items: center;">
+   <!-- <p>Enter your Complaints Below</p> -->
+   <textarea name="Complaints" name="Complaints" placeholder="Complaints" cols="25" rows="10">
+   
+    </textarea>
+    <pre></pre>
+  <input type="text" name="Department Name" placeholder="Department Name">
+  <pre></pre>
+  <input id="btn" type="submit" name="" value="Submit">
+</form>
+</div>
+</section>
+</body>
+
+<style>
+ .sec-1{
+     height: 100vh;
+     /* background: rgb(255, 114, 114); */
+     background: #34495e;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .sec-1 h1{
+     color: white;
+ }
+ .container{
+     height: 80vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     justify-content: space-evenly;
+ }
+
+ .container p{
+     margin-top: 50px;
+     background-color: rgb(255, 175, 89);
+     padding: 10px;
+     background-color: rgb(39, 39, 39);
+     color: aliceblue;
+ }
+
+ input{
+     width: 200px;
+     height: 50px;
+     padding: 10px;
+     box-sizing: border-box;
+     outline: none;
+     border: none;
+ }
+
+ input:hover{
+     border: 2px solid black;
+ }
+  textarea{
+      padding: 5px;
+      width: 300px;
+  }
+
+ #btn{
+     background: rgb(54, 54, 54);
+     color: aliceblue;
+     cursor: pointer;
+ }
+</style>
+</html>

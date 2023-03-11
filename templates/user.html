@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>َAnimated Login Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  </head>
+  <body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div style="color: red;
+    background-color: #d1e7dd;
+    border-color: #badbcc; display: block;">
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+<form class="box" action="{{ url_for('issue') }}" method="post">
+  <h1>Complaints</h1>
+  <input type="submit" name="new_issue" value="Create a new complaints">
+  <input type="submit" name="previous_issue" value="Previous Complaints">
+</form>
+
+
+  </body>
+</html>

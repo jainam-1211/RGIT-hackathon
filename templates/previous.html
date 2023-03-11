@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+</head>
+<body>
+    <section class="sec-1">
+        <div class="container" style="background-color: white; border-top: ;">
+            {% for issues in previous_issues %}
+            <pre style="font-size: 20px;">
+Dept Name: {{ issues.title }} 
+Message: {{ issues.content.lstrip() }}
+Date Posted On:{{ issues.date_posted }}</pre>
+{% if boolean %}
+<form action="{{url_for('admin_response')}}" method="post"> 
+            <input type="submit" value="Respond">
+            </form>
+            {% endif %}
+            {% endfor %}
+    </div>
+</section>
+</body>
+<style>
+    .sec-1{
+        height: 100vh;
+        /* background: rgb(255, 114, 114); */
+        background: #34495e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    .sec-1 h1{
+        color: white;
+    }
+    .container{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+   
+    .container p{
+        margin-top: 50px;
+        background-color: rgb(255, 175, 89);
+        padding: 10px;
+        background-color: rgb(39, 39, 39);
+        color: aliceblue;
+    }
+   
+    input{
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+    }
+   
+    input:hover{
+        border: 2px solid black;
+    }
+     textarea{
+         padding: 5px;
+         width: 300px;
+     }
+   
+    #btn{
+        background: rgb(54, 54, 54);
+        color: aliceblue;
+        cursor: pointer;
+    }
+   </style>
+   </html>    
